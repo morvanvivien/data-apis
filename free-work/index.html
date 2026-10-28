@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free-Work Jobs API | JSON API</title>
+<meta name="description" content="France IT jobs API: French tech jobs and freelance missions from Free-Work (free-work.com) as JSON, with daily rate (TJM), salary, skills, remote mode, location and full description.">
+<link rel="canonical" href="https://morvanvivien.github.io/data-apis/free-work/">
+<meta property="og:title" content="Free-Work Jobs API | JSON API">
+<meta property="og:description" content="France IT jobs API: French tech jobs and freelance missions from Free-Work (free-work.com) as JSON, with daily rate (TJM), salary, skills, remote mode, location and full description.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://morvanvivien.github.io/data-apis/free-work/">
+<style>:root{--bg:#f7f5ef;--card:#fff;--ink:#1c1b17;--muted:#66625a;--line:#e3dfd3;--accent:#0a6a4d}
+@media (prefers-color-scheme:dark){:root{--bg:#15140f;--card:#1e1d17;--ink:#f0ede3;--muted:#a29d90;--line:#34322a;--accent:#5fd0a6}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,"Segoe UI",sans-serif}
+main,header,footer{max-width:780px;margin:0 auto;padding:0 16px}header{padding-top:28px}main{padding-bottom:24px}
+h1{font-size:1.8rem;line-height:1.25;margin:.4em 0}h2{font-size:1.15rem;margin:1.6em 0 .4em}
+a{color:var(--accent)}a:hover,a:focus-visible{text-decoration-thickness:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:12px 0}
+pre{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;font-size:.85rem}
+table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+.muted{color:var(--muted);font-size:.92rem}footer{padding:12px 16px 40px;color:var(--muted);font-size:.9rem}</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebAPI",
+  "name": "Free-Work Jobs API",
+  "description": "France IT jobs API: French tech jobs and freelance missions from Free-Work (free-work.com) as JSON, with daily rate (TJM), salary, skills, remote mode, location and full description.",
+  "url": "https://morvanvivien.github.io/data-apis/free-work/",
+  "documentation": "https://rapidapi.com/VivienMORVAN/api/free-work-jobs",
+  "provider": {
+    "@type": "Person",
+    "name": "Vivien Morvan",
+    "url": "https://github.com/morvanvivien"
+  },
+  "sameAs": [
+    "https://rapidapi.com/VivienMORVAN/api/free-work-jobs",
+    "https://zylalabs.com/api-marketplace/company+data/free+work+jobs+api/14510",
+    "https://apify.com/bibian/free-work-jobs-scraper",
+    "https://github.com/morvanvivien/free-work-scraper",
+    "https://youtu.be/_HQISGumKxo"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Basic",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "10 requests per month"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro",
+      "price": "9.99",
+      "priceCurrency": "USD",
+      "description": "500 requests per month"
+    },
+    {
+      "@type": "Offer",
+      "name": "Ultra",
+      "price": "29.99",
+      "priceCurrency": "USD",
+      "description": "3,000 requests per month"
+    },
+    {
+      "@type": "Offer",
+      "name": "Mega",
+      "price": "99.99",
+      "priceCurrency": "USD",
+      "description": "15,000 requests per month"
+    }
+  ]
+}</script>
+</head>
+<body>
+<header><nav aria-label="Breadcrumb"><a href="https://morvanvivien.github.io/data-apis/">All APIs</a></nav></header>
+<main>
+<h1>Free-Work Jobs API</h1>
+<p>French IT jobs and freelance missions from free-work.com, the leading French tech job board, as clean JSON: title, company, daily rate (TJM) or salary, skills, remote mode, location, dates and full description. One call returns the matching postings. Public pages only, no personal data, robots.txt respected. Backed by the Apify Actor bibian/free-work-jobs-scraper.</p>
+<p>Good for: France jobs API, French IT job board data, freelance missions in France (missions freelance, TJM, régie), tech salary benchmarks in France, job alerts for Paris, Lyon, Toulouse, Nantes, Lille and remote.</p>
+<h2>Where to get it</h2>
+<ul>
+<li><a href="https://rapidapi.com/VivienMORVAN/api/free-work-jobs" rel="noopener">RapidAPI</a></li>
+<li><a href="https://zylalabs.com/api-marketplace/company+data/free+work+jobs+api/14510" rel="noopener">Zyla API Hub</a></li>
+<li><a href="https://apify.com/bibian/free-work-jobs-scraper" rel="noopener">Apify Actor</a></li>
+<li><a href="https://github.com/morvanvivien/free-work-scraper" rel="noopener">Source on GitHub</a></li>
+<li><a href="https://youtu.be/_HQISGumKxo" rel="noopener">Video walkthrough</a></li>
+</ul>
+<h2>Example request</h2>
+<pre><code>curl -X POST &quot;https://free-work-jobs.p.rapidapi.com/v2/acts/bibian~free-work-jobs-scraper/run-sync-get-dataset-items?clean=true&quot; \
+  -H &quot;x-rapidapi-key: &lt;YOUR_RAPIDAPI_KEY&gt;&quot; \
+  -H &quot;x-rapidapi-host: free-work-jobs.p.rapidapi.com&quot; \
+  -H &quot;content-type: application/json&quot; \
+  -d '{&quot;keywords&quot;:&quot;data engineer&quot;,&quot;contracts&quot;:[&quot;contractor&quot;],&quot;publishedWithinDays&quot;:7,&quot;maxItems&quot;:50,&quot;includeDescriptions&quot;:false}'</code></pre>
+<p class="muted">The response is a JSON array. The same call works from any language that can send an HTTP POST. A call can take several seconds because the data is read live.</p>
+<h2>Plans on RapidAPI</h2>
+<table>
+<thead><tr><th>Plan</th><th>Per month</th><th>Requests</th></tr></thead>
+<tbody>
+<tr><td>Basic</td><td>Free</td><td>10</td></tr>
+<tr><td>Pro</td><td>$9.99</td><td>500</td></tr>
+<tr><td>Ultra</td><td>$29.99</td><td>3,000</td></tr>
+<tr><td>Mega</td><td>$99.99</td><td>15,000</td></tr>
+</tbody>
+</table>
+</main>
+<footer>Independent project by <a href="https://github.com/morvanvivien">Vivien Morvan</a>, not affiliated with or endorsed by the websites mentioned. The APIs read publicly visible pages only, with no login and no personal data, and respect robots.txt.</footer>
+</body>
+</html>

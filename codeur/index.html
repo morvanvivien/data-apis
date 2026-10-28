@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codeur Freelance Projects France | JSON API</title>
+<meta name="description" content="France freelance jobs API: freelance projects and missions from Codeur.com as JSON, with budget, offers, views, category, wanted profiles, date and the client's full brief.">
+<link rel="canonical" href="https://morvanvivien.github.io/data-apis/codeur/">
+<meta property="og:title" content="Codeur Freelance Projects France | JSON API">
+<meta property="og:description" content="France freelance jobs API: freelance projects and missions from Codeur.com as JSON, with budget, offers, views, category, wanted profiles, date and the client's full brief.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://morvanvivien.github.io/data-apis/codeur/">
+<style>:root{--bg:#f7f5ef;--card:#fff;--ink:#1c1b17;--muted:#66625a;--line:#e3dfd3;--accent:#0a6a4d}
+@media (prefers-color-scheme:dark){:root{--bg:#15140f;--card:#1e1d17;--ink:#f0ede3;--muted:#a29d90;--line:#34322a;--accent:#5fd0a6}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,"Segoe UI",sans-serif}
+main,header,footer{max-width:780px;margin:0 auto;padding:0 16px}header{padding-top:28px}main{padding-bottom:24px}
+h1{font-size:1.8rem;line-height:1.25;margin:.4em 0}h2{font-size:1.15rem;margin:1.6em 0 .4em}
+a{color:var(--accent)}a:hover,a:focus-visible{text-decoration-thickness:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:12px 0}
+pre{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;font-size:.85rem}
+table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+.muted{color:var(--muted);font-size:.92rem}footer{padding:12px 16px 40px;color:var(--muted);font-size:.9rem}</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebAPI",
+  "name": "Codeur Freelance Projects France",
+  "description": "France freelance jobs API: freelance projects and missions from Codeur.com as JSON, with budget, offers, views, category, wanted profiles, date and the client's full brief.",
+  "url": "https://morvanvivien.github.io/data-apis/codeur/",
+  "documentation": "https://rapidapi.com/VivienMORVAN/api/codeur-freelance-projects-france",
+  "provider": {
+    "@type": "Person",
+    "name": "Vivien Morvan",
+    "url": "https://github.com/morvanvivien"
+  },
+  "sameAs": [
+    "https://rapidapi.com/VivienMORVAN/api/codeur-freelance-projects-france",
+    "https://zylalabs.com/api-marketplace/company+data/codeur+freelance+projects+france+api/14514",
+    "https://apify.com/bibian/codeur-projects-scraper",
+    "https://github.com/morvanvivien/codeur-scraper",
+    "https://youtu.be/efHS-yKlu9Y"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Basic",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "10 requests per month"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro",
+      "price": "9.99",
+      "priceCurrency": "USD",
+      "description": "500 requests per month"
+    },
+    {
+      "@type": "Offer",
+      "name": "Ultra",
+      "price": "29.99",
+      "priceCurrency": "USD",
+      "description": "3,000 requests per month"
+    },
+    {
+      "@type": "Offer",
+      "name": "Mega",
+      "price": "99.99",
+      "priceCurrency": "USD",
+      "description": "15,000 requests per month"
+    }
+  ]
+}</script>
+</head>
+<body>
+<header><nav aria-label="Breadcrumb"><a href="https://morvanvivien.github.io/data-apis/">All APIs</a></nav></header>
+<main>
+<h1>Codeur Freelance Projects France</h1>
+<p>French freelance projects and missions from Codeur.com, the leading French freelance marketplace for developers, designers and marketers, as clean JSON: title, status, budget, number of offers and views, category, wanted profiles, publication date and the client's full brief. Track new French freelance missions, measure demand per skill (WordPress, React, SEO...) or feed a freelancer alert. Public pages only, no personal data. Backed by the Apify Actor bibian/codeur-projects-scraper.</p>
+<p>Good for: France freelance jobs API, French freelance marketplace data, missions freelance and appels d'offres for developers, WordPress, React, SEO and design, demand per skill in France, daily alerts of new freelance missions.</p>
+<h2>Where to get it</h2>
+<ul>
+<li><a href="https://rapidapi.com/VivienMORVAN/api/codeur-freelance-projects-france" rel="noopener">RapidAPI</a></li>
+<li><a href="https://zylalabs.com/api-marketplace/company+data/codeur+freelance+projects+france+api/14514" rel="noopener">Zyla API Hub</a></li>
+<li><a href="https://apify.com/bibian/codeur-projects-scraper" rel="noopener">Apify Actor</a></li>
+<li><a href="https://github.com/morvanvivien/codeur-scraper" rel="noopener">Source on GitHub</a></li>
+<li><a href="https://youtu.be/efHS-yKlu9Y" rel="noopener">Video walkthrough</a></li>
+</ul>
+<h2>Example request</h2>
+<pre><code>curl -X POST &quot;https://codeur-freelance-projects-france.p.rapidapi.com/v2/acts/bibian~codeur-projects-scraper/run-sync-get-dataset-items?clean=true&quot; \
+  -H &quot;x-rapidapi-key: &lt;YOUR_RAPIDAPI_KEY&gt;&quot; \
+  -H &quot;x-rapidapi-host: codeur-freelance-projects-france.p.rapidapi.com&quot; \
+  -H &quot;content-type: application/json&quot; \
+  -d '{&quot;keywords&quot;:&quot;wordpress&quot;,&quot;publishedWithinDays&quot;:14,&quot;onlyOpen&quot;:true,&quot;maxItems&quot;:20,&quot;includeDescription&quot;:true}'</code></pre>
+<p class="muted">The response is a JSON array. The same call works from any language that can send an HTTP POST. A call can take several seconds because the data is read live.</p>
+<h2>Plans on RapidAPI</h2>
+<table>
+<thead><tr><th>Plan</th><th>Per month</th><th>Requests</th></tr></thead>
+<tbody>
+<tr><td>Basic</td><td>Free</td><td>10</td></tr>
+<tr><td>Pro</td><td>$9.99</td><td>500</td></tr>
+<tr><td>Ultra</td><td>$29.99</td><td>3,000</td></tr>
+<tr><td>Mega</td><td>$99.99</td><td>15,000</td></tr>
+</tbody>
+</table>
+</main>
+<footer>Independent project by <a href="https://github.com/morvanvivien">Vivien Morvan</a>, not affiliated with or endorsed by the websites mentioned. The APIs read publicly visible pages only, with no login and no personal data, and respect robots.txt.</footer>
+</body>
+</html>

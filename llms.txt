@@ -1,0 +1,23 @@
+# Job and data APIs for France, Germany, Spain and Latin America
+
+> Seven REST APIs that return public job postings, freelance missions, films and crowdfunding projects as clean JSON. Sold on RapidAPI and Zyla API Hub, also available as Apify Actors.
+
+## APIs
+
+- [Free-Work Jobs API](https://morvanvivien.github.io/data-apis/free-work/): France IT jobs API: French tech jobs and freelance missions from Free-Work (free-work.com) as JSON, with daily rate (TJM), salary, skills, remote mode, location and full description.
+- [German Jobs Arbeitsagentur](https://morvanvivien.github.io/data-apis/arbeitsagentur/): Germany jobs API: job postings (Stellenangebote) from the Bundesagentur für Arbeit Jobsuche (arbeitsagentur.de), Deutschland's largest job database, as JSON with salary, home office and location.
+- [Spain Jobs Infoempleo](https://morvanvivien.github.io/data-apis/infoempleo/): Spain jobs API: Spanish job postings (ofertas de empleo) from Infoempleo (infoempleo.com) as JSON, with salary range, company, city, region, experience, contract type and description.
+- [LatAm Jobs Bumeran Zonajobs Laborum](https://morvanvivien.github.io/data-apis/bumeran/): Latin America jobs API: postings (ofertas de empleo) from Bumeran, Zonajobs, Laborum, Multitrabajos and Konzerta for Argentina, Chile, Peru, Ecuador, Panama and Venezuela, as JSON.
+- [Codeur Freelance Projects France](https://morvanvivien.github.io/data-apis/codeur/): France freelance jobs API: freelance projects and missions from Codeur.com as JSON, with budget, offers, views, category, wanted profiles, date and the client's full brief.
+- [AlloCine Movies France](https://morvanvivien.github.io/data-apis/allocine/): France movies API: films now playing in French cinemas, this week's releases and upcoming movies from AlloCine as JSON, with ratings, showtimes count, cast and synopsis.
+- [KissKissBankBank Crowdfunding Projects](https://morvanvivien.github.io/data-apis/kisskiss/): Crowdfunding API for France and Europe: KissKissBankBank projects as JSON, with amount collected, goal, funding percentage, backers, category, city and dates.
+
+## Listings
+
+- Free-Work Jobs API: https://rapidapi.com/VivienMORVAN/api/free-work-jobs , https://zylalabs.com/api-marketplace/company+data/free+work+jobs+api/14510
+- German Jobs Arbeitsagentur: https://rapidapi.com/VivienMORVAN/api/german-jobs-arbeitsagentur , https://zylalabs.com/api-marketplace/company+data/german+jobs+arbeitsagentur+api/14511
+- Spain Jobs Infoempleo: https://rapidapi.com/VivienMORVAN/api/spain-jobs-infoempleo , https://zylalabs.com/api-marketplace/company+data/spain+jobs+infoempleo+api/14512
+- LatAm Jobs Bumeran Zonajobs Laborum: https://rapidapi.com/VivienMORVAN/api/latam-jobs-bumeran-zonajobs-laborum , https://zylalabs.com/api-marketplace/company+data/latam+job+postings+api/14513
+- Codeur Freelance Projects France: https://rapidapi.com/VivienMORVAN/api/codeur-freelance-projects-france , https://zylalabs.com/api-marketplace/company+data/codeur+freelance+projects+france+api/14514
+- AlloCine Movies France: https://rapidapi.com/VivienMORVAN/api/allocine-movies-france , https://apify.com/bibian/allocine-movies-scraper
+- KissKissBankBank Crowdfunding Projects: https://rapidapi.com/VivienMORVAN/api/kisskissbankbank-crowdfunding-projects , https://apify.com/bibian/kisskissbankbank-projects-scraper

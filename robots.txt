@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://morvanvivien.github.io/data-apis/sitemap.xml
