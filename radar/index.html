@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar Missions</title>
+<meta name="description" content="Chaque matin à 7 h, les nouvelles missions freelance IT en France qui correspondent à tes critères : mots clés, ville ou télétravail, TJM minimum. Free-Work, Codeur et les autres, en un seul mail.">
+<meta property="og:title" content="Radar Missions · les missions freelance IT d'hier soir, dans ta boîte avant le café">
+<meta property="og:description" content="TJM médian 490 € cette semaine sur 1 082 missions avec tarif. Un mail par jour, filtré sur tes critères. Premier mois à 2 €.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://morvanvivien.github.io/data-apis/radar/">
+<link rel="canonical" href="https://morvanvivien.github.io/data-apis/radar/">
+<style>
+  :root {
+    --papier: #f4efe6; --encre: #17150f; --encre-2: #4a4538; --ligne: #d9d1c2; --carte: #fbf8f2;
+    --accent: #d1341b; --accent-encre: #fff; --ok: #1f6f43; --jaune: #f2c94c;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+    --mono: Consolas, "SF Mono", Menlo, monospace;
+    --t-xl: clamp(2.6rem, 1.2rem + 5.2vw, 5.6rem); --t-l: clamp(1.5rem, 1rem + 1.6vw, 2.3rem); --t-m: 1.125rem; --t-s: 0.9rem;
+    --s-1: 8px; --s-2: 16px; --s-3: 28px; --s-4: 48px; --s-5: clamp(64px, 5vw + 32px, 112px);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --papier: #15130e; --encre: #f2ecdf; --encre-2: #b4ab98; --ligne: #332f26; --carte: #1d1a13; --accent: #ff6a4d; --accent-encre: #15130e; --ok: #63c98f; } }
+  :root[data-theme="dark"] { --papier: #15130e; --encre: #f2ecdf; --encre-2: #b4ab98; --ligne: #332f26; --carte: #1d1a13; --accent: #ff6a4d; --accent-encre: #15130e; --ok: #63c98f; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--papier); color: var(--encre); font: 400 var(--t-m)/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
+  body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: 0.06; background-image: radial-gradient(var(--encre) 0.6px, transparent 0.6px); background-size: 4px 4px; }
+  a { color: inherit; }
+  .page { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  header { display: flex; align-items: baseline; justify-content: space-between; padding: var(--s-3) 0 var(--s-2); border-bottom: 1px solid var(--encre); }
+  .marque { font: 700 1.2rem var(--serif); letter-spacing: -0.01em; }
+  .marque small { font: 400 var(--t-s) var(--sans); color: var(--encre-2); margin-left: 10px; }
+  nav a { font-size: var(--t-s); text-decoration: none; margin-left: 18px; color: var(--encre-2); }
+  nav a:hover, nav a:focus-visible { color: var(--accent); }
+
+  .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--s-4); padding: var(--s-5) 0 var(--s-4); align-items: end; }
+  .kicker { font: 600 var(--t-s) var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 var(--s-2); }
+  h1 { font: 500 var(--t-xl)/0.98 var(--serif); letter-spacing: -0.03em; margin: 0 0 var(--s-3); text-wrap: balance; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .pitch { font-size: 1.2rem; color: var(--encre-2); max-width: 46ch; margin: 0 0 var(--s-3); }
+  .cta { display: inline-flex; gap: 10px; align-items: center; background: var(--accent); color: var(--accent-encre); text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); box-shadow: 0 12px 30px -16px var(--accent); }
+  .cta:hover, .cta:focus-visible { transform: translateY(-2px); box-shadow: 0 18px 36px -16px var(--accent); outline: none; }
+  .cta:active { transform: translateY(0); }
+  .sous-cta { font-size: var(--t-s); color: var(--encre-2); margin: var(--s-2) 0 0; }
+
+  .chiffre { border-top: 1px solid var(--encre); padding-top: var(--s-2); }
+  .chiffre .gros { font: 500 clamp(4rem, 2rem + 8vw, 8.5rem)/0.9 var(--serif); letter-spacing: -0.04em; }
+  .chiffre .gros sup { font-size: 0.35em; vertical-align: top; top: 0.5em; position: relative; color: var(--encre-2); }
+  .chiffre .legende { color: var(--encre-2); margin-top: var(--s-1); max-width: 34ch; }
+  .chiffre .legende strong { color: var(--encre); }
+  .barre { display: flex; height: 10px; margin: var(--s-2) 0 6px; border-radius: 999px; overflow: hidden; background: var(--ligne); }
+  .barre span { display: block; height: 100%; }
+  .barre .p1 { background: var(--encre-2); width: 25%; }
+  .barre .p2 { background: var(--accent); width: 50%; }
+  .barre .p3 { background: var(--encre-2); width: 25%; }
+  .quartiles { display: flex; justify-content: space-between; font: 500 var(--t-s) var(--mono); color: var(--encre-2); }
+
+  .radar { padding: var(--s-4) 0 var(--s-5); }
+  .radar-tete { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-2); flex-wrap: wrap; border-bottom: 1px solid var(--encre); padding-bottom: var(--s-2); }
+  h2 { font: 500 var(--t-l)/1.1 var(--serif); letter-spacing: -0.02em; margin: 0; }
+  .live { display: inline-flex; align-items: center; gap: 8px; font: 600 var(--t-s) var(--mono); color: var(--ok); }
+  .live i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 var(--ok); animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 50%, transparent); } 100% { box-shadow: 0 0 0 10px transparent; } }
+  @media (prefers-reduced-motion: reduce) { .live i { animation: none; } .cta, .mission { transition: none; } }
+  .missions { list-style: none; margin: 0; padding: 0; }
+  .mission { display: grid; grid-template-columns: 72px 1fr auto; gap: var(--s-2); align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--ligne); text-decoration: none; transition: transform 0.35s var(--ease); }
+  .mission:hover { transform: translateX(6px); }
+  .mission:hover .titre { color: var(--accent); }
+  .mission:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .heure { font: 500 var(--t-s) var(--mono); color: var(--encre-2); }
+  .titre { font: 500 1.05rem var(--sans); }
+  .meta { display: block; font-size: var(--t-s); color: var(--encre-2); margin-top: 2px; }
+  .meta b { font-weight: 600; color: var(--encre); }
+  .tjm { font: 600 1rem var(--mono); white-space: nowrap; }
+  .tjm.haut { color: var(--accent); }
+  .mission.floue { filter: blur(3px); opacity: 0.6; pointer-events: none; user-select: none; }
+  .voile { position: relative; margin-top: -120px; padding-top: 120px; background: linear-gradient(to bottom, transparent, var(--papier) 55%); text-align: center; }
+  .voile p { margin: 0 0 var(--s-2); color: var(--encre-2); }
+
+  .comment { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: var(--s-4); padding: var(--s-5) 0; border-top: 1px solid var(--encre); }
+  .etapes { counter-reset: e; list-style: none; margin: 0; padding: 0; }
+  .etapes li { counter-increment: e; display: grid; grid-template-columns: 56px 1fr; gap: var(--s-2); padding: var(--s-2) 0; border-bottom: 1px solid var(--ligne); }
+  .etapes li::before { content: counter(e, decimal-leading-zero); font: 500 1.6rem var(--serif); color: var(--accent); }
+  .etapes b { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+  .etapes p { margin: 0; color: var(--encre-2); }
+  .exemple { margin-top: var(--s-3); background: var(--carte); border: 1px solid var(--ligne); border-radius: 12px; padding: var(--s-2) var(--s-3); font: 0.92rem/1.6 var(--mono); color: var(--encre-2); white-space: pre-wrap; }
+  .exemple b { color: var(--encre); font-weight: 600; }
+
+  .prix { padding: var(--s-5) 0; border-top: 1px solid var(--encre); }
+  .plans { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--s-3); margin-top: var(--s-3); }
+  .plan { position: relative; background: var(--carte); border: 1px solid var(--ligne); border-radius: 18px; padding: var(--s-3); display: flex; flex-direction: column; gap: var(--s-2); }
+  .plan.phare { border-color: var(--encre); box-shadow: 0 30px 60px -40px var(--encre); }
+  .plan .nom { font: 500 1.3rem var(--serif); }
+  .plan .montant { font: 500 3rem/1 var(--serif); letter-spacing: -0.03em; }
+  .plan .montant small { font: 400 var(--t-s) var(--sans); color: var(--encre-2); margin-left: 6px; }
+  .plan ul { margin: 0; padding-left: 18px; color: var(--encre-2); }
+  .plan li { margin: 4px 0; }
+  .etiquette { position: absolute; top: -12px; left: var(--s-3); background: var(--jaune); color: #17150f; font: 700 0.75rem var(--sans); letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
+  .plan .cta { align-self: flex-start; margin-top: auto; }
+  .plan.sobre .cta { background: transparent; color: var(--encre); border: 1px solid var(--encre); box-shadow: none; }
+
+  .attente { padding: var(--s-5) 0; border-top: 1px solid var(--encre); display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); align-items: center; }
+  form { display: flex; gap: 10px; flex-wrap: wrap; }
+  input[type=email] { flex: 1 1 260px; font: 1rem var(--sans); padding: 14px 16px; border-radius: 999px; border: 1px solid var(--encre); background: var(--carte); color: var(--encre); }
+  input[type=email]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button { font: 700 1rem var(--sans); padding: 14px 22px; border-radius: 999px; border: 0; background: var(--encre); color: var(--papier); cursor: pointer; }
+  button:hover, button:focus-visible { background: var(--accent); color: var(--accent-encre); outline: none; }
+  .merci { display: none; color: var(--ok); font-weight: 600; margin-top: var(--s-2); }
+  footer { padding: var(--s-3) 0 var(--s-4); border-top: 1px solid var(--ligne); font-size: var(--t-s); color: var(--encre-2); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--s-2); }
+  footer a { text-decoration: none; }
+  .bandeau-maquette { position: fixed; right: 16px; bottom: 16px; background: var(--jaune); color: #17150f; font: 700 0.75rem var(--sans); letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 12px; border-radius: 999px; z-index: 2; }
+
+  @media (max-width: 820px) {
+    .hero, .comment, .plans, .attente { grid-template-columns: 1fr; }
+    .mission { grid-template-columns: 1fr auto; }
+    .heure { display: none; }
+    header { flex-direction: column; gap: 6px; align-items: flex-start; }
+    nav a { margin: 0 18px 0 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="marque">Radar Missions <small>par bibian</small></div>
+    <nav aria-label="Sections"><a href="#radar">Ce matin</a><a href="#comment">Comment</a><a href="#prix">Prix</a><a href="#attente">Liste d'attente</a></nav>
+  </header>
+
+  <section class="hero" aria-labelledby="titre-hero">
+    <div>
+      <p class="kicker">Missions freelance IT · France · chaque matin à 7 h</p>
+      <h1 id="titre-hero">Les missions d'hier soir, <em>dans ta boîte</em> avant le café.</h1>
+      <p class="pitch">Free-Work, Codeur et les autres places de marché, lues toutes les nuits. Tu reçois seulement les nouvelles missions qui collent à tes mots clés, ta ville ou le télétravail, et ton TJM minimum. Rien d'autre.</p>
+      <a class="cta" href="#attente">Rejoindre la liste d'attente <span aria-hidden="true">→</span></a>
+      <p class="sous-cta">Premier mois à 2 €, puis 7 € par mois, sans engagement. Ouverture aux 100 premiers inscrits.</p>
+    </div>
+    <div class="chiffre" aria-label="TJM médian de la semaine">
+      <div class="gros">490<sup>€ / jour</sup></div>
+      <p class="legende">TJM médian des <strong>1 082 missions</strong> avec tarif publié cette semaine, sur <strong>3 000 missions</strong> relevées en 7 jours sur Free-Work.</p>
+      <div class="barre" aria-hidden="true"><span class="p1"></span><span class="p2"></span><span class="p3"></span></div>
+      <div class="quartiles"><span>425 €</span><span>médiane 490 €</span><span>560 €</span></div>
+    </div>
+  </section>
+
+  <section class="radar" id="radar" aria-labelledby="titre-radar">
+    <div class="radar-tete">
+      <h2 id="titre-radar">Ce matin, 9 novembre</h2>
+      <span class="live"><i></i>12 missions publiées depuis hier soir, TJM affiché</span>
+    </div>
+    <ul class="missions">
+      <li><a class="mission" href="https://www.free-work.com/fr/tech-it/job-mission/business-analyst/directeur-directrice-de-programme-pilotage-economique-et-business-cases" target="_blank" rel="noopener"><span class="heure">06:52</span><span><span class="titre">Directeur / Directrice de programme, pilotage économique et business cases</span><span class="meta"><b>Sapiens Group</b> · Paris · sur site · Budget, Excel, Salesforce</span></span><span class="tjm haut">710 à 830 €</span></a></li>
+      <li><a class="mission" href="https://www.free-work.com/fr/tech-it/job-mission/administrateur-securite/ingenieur-e-securite-plateformes-hid" target="_blank" rel="noopener"><span class="heure">06:40</span><span><span class="titre">Ingénieur(e) Sécurité plateformes HID</span><span class="meta"><b>LeHibou</b> · Guyancourt · télétravail partiel · Cybersécurité</span></span><span class="tjm haut">610 €</span></a></li>
+      <li><a class="mission" href="https://www.free-work.com/fr/tech-it/job-mission/administrateur-de-base-de-donnee-oracle-sybase/dba-oracle-h-f-87" target="_blank" rel="noopener"><span class="heure">06:31</span><span><span class="titre">DBA Oracle (H/F)</span><span class="meta"><b>STORM GROUP</b> · Paris · télétravail partiel</span></span><span class="tjm">550 à 600 €</span></a></li>
+      <li><a class="mission" href="https://www.free-work.com/fr/tech-it/job-mission/administrateur-applicatif-erp-crm-sirh/chef-de-projet-crm-h-f-33" target="_blank" rel="noopener"><span class="heure">06:18</span><span><span class="titre">Chef de projet CRM (H/F)</span><span class="meta"><b>emagine Consulting</b> · Créteil · télétravail partiel</span></span><span class="tjm">550 à 590 €</span></a></li>
+      <li><a class="mission" href="https://www.free-work.com/fr/tech-it/job-mission/consultant/consultant-grc-senior-controles-2-5-it-risk-bcm-tprm-1" target="_blank" rel="noopener"><span class="heure">06:05</span><span><span class="titre">Consultant GRC Senior : contrôles 2.5, IT Risk, BCM &amp; TPRM</span><span class="meta"><b>NOVAMINDS</b> · Paris · télétravail partiel · DORA, GRC, PCA</span></span><span class="tjm">580 €</span></a></li>
+      <li><a class="mission" href="https://www.free-work.com/fr/tech-it/job-mission/developpeur-java-kotlin-groovy-scala/tech-lead-java-loan-iq-h-f" target="_blank" rel="noopener"><span class="heure">05:47</span><span><span class="titre">Tech Lead Java, Loan IQ (H/F)</span><span class="meta"><b>I-lead Consulting</b> · Paris · Java, J2EE, Loan IQ</span></span><span class="tjm">400 à 550 €</span></a></li>
+      <li><a class="mission" href="https://www.free-work.com/fr/tech-it/job-mission/consultant/aws-finops-consultant" target="_blank" rel="noopener"><span class="heure">05:30</span><span><span class="titre">AWS FinOps Consultant</span><span class="meta"><b>Focus Cloud Group</b> · Lyon · AWS, FinOps</span></span><span class="tjm">400 à 550 €</span></a></li>
+      <li><a class="mission" href="https://www.free-work.com/fr/tech-it/job-mission/expert-seo-consultant-referencement/expert-secure-transport-axway" target="_blank" rel="noopener"><span class="heure">05:12</span><span><span class="titre">Expert Secure Transport Axway</span><span class="meta"><b>MGI Consultants</b> · Montreuil · Axway</span></span><span class="tjm">450 à 550 €</span></a></li>
+      <li class="floue" aria-hidden="true"><a class="mission" href="#"><span class="heure">04:58</span><span><span class="titre">Chef de projet poste de travail, O365 et SharePoint</span><span class="meta"><b>ARDEMIS PARTNERS</b> · Aix-en-Provence · télétravail partiel</span></span><span class="tjm">400 à 440 €</span></a></li>
+      <li class="floue" aria-hidden="true"><a class="mission" href="#"><span class="heure">04:41</span><span><span class="titre">Architecte Réseau, Télécom &amp; Sécurité</span><span class="meta"><b>ASAP TECHNOLOGIES</b> · Bondoufle · Cisco, Fortinet, F5</span></span><span class="tjm">jusqu'à 500 €</span></a></li>
+      <li class="floue" aria-hidden="true"><a class="mission" href="#"><span class="heure">04:20</span><span><span class="titre">Consultant Paie / GA (H/F)</span><span class="meta"><b>Freelance.com</b> · Paris · télétravail partiel</span></span><span class="tjm">400 à 500 €</span></a></li>
+    </ul>
+    <div class="voile">
+      <p>Les abonnés voient tout, filtré sur leurs critères, à 7 h précises.</p>
+      <a class="cta" href="#attente">Je veux le mail de demain <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="comment" id="comment" aria-labelledby="titre-comment">
+    <div>
+      <h2 id="titre-comment">Un filtre, pas un flux.</h2>
+      <p style="color: var(--encre-2); margin-top: var(--s-2);">Les sites envoient déjà des alertes, une par site, sur un mot clé. Radar Missions lit toutes les sources la nuit, garde ce qui correspond vraiment à ton profil et à ton tarif, et t'envoie un seul mail court. Tu réponds aux bonnes missions pendant que les autres trient.</p>
+    </div>
+    <div>
+      <ol class="etapes">
+        <li><div><b>Tu décris ta recherche en une minute</b><p>Mots clés (Python, Data, SAP, DevOps…), ville ou télétravail, TJM minimum, type de contrat.</p></div></li>
+        <li><div><b>Chaque nuit, on lit toutes les sources</b><p>Free-Work et Codeur aujourd'hui, d'autres places de marché ensuite. Seules les missions publiées depuis la veille sont retenues, jamais deux fois la même.</p></div></li>
+        <li><div><b>À 7 h, un mail, 10 à 30 missions, un lien chacune</b><p>Titre, client, lieu, télétravail, TJM, compétences. Tu cliques, tu postules sur le site d'origine. Rien à installer.</p></div></li>
+      </ol>
+      <div class="exemple" aria-label="Exemple de mail"><b>Objet : 14 nouvelles missions Data · Paris ou remote · 500 € et plus</b>
+
+<b>Data Engineer Spark / Databricks</b> · Banque · Paris, 3 j de télétravail · 600 à 650 €
+<b>Lead Data Scientist</b> · Retail · remote total · 550 à 600 €
+<b>Architecte Data Azure</b> · Assurance · La Défense · 700 €
+… 11 autres missions, puis le TJM médian du jour pour tes critères : 585 €.</div>
+    </div>
+  </section>
+
+  <section class="prix" id="prix" aria-labelledby="titre-prix">
+    <h2 id="titre-prix">Le prix d'un café par semaine.</h2>
+    <div class="plans">
+      <div class="plan phare">
+        <span class="etiquette">Lancement</span>
+        <div class="nom">Freelance</div>
+        <div class="montant">7 €<small>par mois, le premier à 2 €</small></div>
+        <ul>
+          <li>Un mail par jour à 7 h, filtré sur tes critères</li>
+          <li>Jusqu'à 3 recherches (par exemple Data Paris, DevOps remote, SAP Lyon)</li>
+          <li>TJM médian du jour pour tes critères</li>
+          <li>Sans engagement, arrêt en un clic quand tu as signé</li>
+        </ul>
+        <a class="cta" href="#attente">Rejoindre la liste d'attente</a>
+      </div>
+      <div class="plan sobre">
+        <div class="nom">Sourceur</div>
+        <div class="montant">29 €<small>par mois</small></div>
+        <ul>
+          <li>Pour les ESN, cabinets et apporteurs d'affaires</li>
+          <li>Recherches illimitées, plusieurs destinataires</li>
+          <li>Export CSV quotidien et accès API</li>
+          <li>Historique 90 jours</li>
+        </ul>
+        <a class="cta" href="#attente">Être prévenu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="attente" id="attente" aria-labelledby="titre-attente">
+    <div>
+      <h2 id="titre-attente">On ouvre aux 100 premiers.</h2>
+      <p style="color: var(--encre-2); margin-top: var(--s-2);">Laisse ton mail. Tu recevras le premier Radar gratuitement le jour de l'ouverture, et le premier mois à 2 € si tu restes.</p>
+    </div>
+    <div>
+      <form id="formulaire" aria-label="Liste d'attente">
+        <input type="email" name="email" placeholder="ton@mail.fr" required aria-label="Adresse e-mail" autocomplete="email">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <button type="submit">Je m'inscris</button>
+      </form>
+      <p class="merci" id="merci">Bien reçu. Le premier Radar arrive le jour de l'ouverture.</p>
+      <p class="merci" id="erreur" style="color: var(--accent);">L'inscription n'est pas passée. Réessaie dans une minute.</p>
+      <p class="sous-cta">Pas de newsletter, pas de revente d'adresse. Désinscription en un clic.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Radar Missions, un service bibian. Données publiques des sites de missions, chaque annonce renvoie à sa page d'origine.</span>
+    <span><a href="https://huggingface.co/datasets/bibianarg/french-it-freelance-missions" target="_blank" rel="noopener">Jeu de données ouvert de la semaine</a></span>
+  </footer>
+</div>
+<script>
+  const ENDPOINT = 'https://mipetitplacard.com/api/radar-waitlist.php';
+  const source = new URLSearchParams(location.search).get('utm_source') || document.referrer.replace(/^https?:\/\//, '').split('/')[0] || 'page';
+  document.getElementById('formulaire').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const button = form.querySelector('button');
+    const merci = document.getElementById('merci');
+    const erreur = document.getElementById('erreur');
+    merci.style.display = 'none';
+    erreur.style.display = 'none';
+    button.disabled = true;
+    button.textContent = 'Un instant…';
+    try {
+      const response = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: form.email.value.trim(), website: form.website.value, source }),
+      });
+      if (!response.ok) throw new Error(String(response.status));
+      merci.style.display = 'block';
+      button.textContent = 'Inscrit';
+    } catch {
+      erreur.style.display = 'block';
+      button.disabled = false;
+      button.textContent = "Je m'inscris";
+    }
+  });
+</script>
+</body>
+</html>
