@@ -1,0 +1,213 @@
+{
+  "date": "2026-11-09",
+  "periode": {
+    "debut": "2026-11-03",
+    "fin": "2026-11-09"
+  },
+  "missions": 3000,
+  "avecTaux": 1082,
+  "global": {
+    "n": 1082,
+    "mediane": 490,
+    "q1": 425,
+    "q3": 560
+  },
+  "competences": [
+    {
+      "label": "Python",
+      "n": 70,
+      "mediane": 475
+    },
+    {
+      "label": "SQL",
+      "n": 64,
+      "mediane": 475
+    },
+    {
+      "label": "Java",
+      "n": 62,
+      "mediane": 475
+    },
+    {
+      "label": "Kubernetes",
+      "n": 54,
+      "mediane": 500
+    },
+    {
+      "label": "JIRA",
+      "n": 51,
+      "mediane": 475
+    },
+    {
+      "label": "Gestion de projet",
+      "n": 42,
+      "mediane": 543
+    },
+    {
+      "label": "SAP",
+      "n": 40,
+      "mediane": 600
+    },
+    {
+      "label": "CI/CD",
+      "n": 40,
+      "mediane": 475
+    },
+    {
+      "label": "Ansible",
+      "n": 37,
+      "mediane": 500
+    },
+    {
+      "label": "DevOps",
+      "n": 36,
+      "mediane": 500
+    },
+    {
+      "label": "Linux",
+      "n": 35,
+      "mediane": 465
+    },
+    {
+      "label": "Finance",
+      "n": 34,
+      "mediane": 535
+    },
+    {
+      "label": "Architecture",
+      "n": 34,
+      "mediane": 600
+    },
+    {
+      "label": "Terraform",
+      "n": 34,
+      "mediane": 508
+    }
+  ],
+  "villes": [
+    {
+      "label": "Paris",
+      "n": 124,
+      "mediane": 500
+    },
+    {
+      "label": "Nantes",
+      "n": 42,
+      "mediane": 390
+    },
+    {
+      "label": "Lyon",
+      "n": 41,
+      "mediane": 440
+    },
+    {
+      "label": "Toulouse",
+      "n": 35,
+      "mediane": 425
+    },
+    {
+      "label": "Lille",
+      "n": 32,
+      "mediane": 440
+    },
+    {
+      "label": "Bruxelles",
+      "n": 24,
+      "mediane": 650
+    },
+    {
+      "label": "Niort",
+      "n": 20,
+      "mediane": 450
+    },
+    {
+      "label": "Hart",
+      "n": 15,
+      "mediane": 690
+    },
+    {
+      "label": "La Défense",
+      "n": 14,
+      "mediane": 598
+    },
+    {
+      "label": "Bordeaux",
+      "n": 12,
+      "mediane": 425
+    },
+    {
+      "label": "Châtillon",
+      "n": 12,
+      "mediane": 478
+    },
+    {
+      "label": "Montreuil",
+      "n": 11,
+      "mediane": 540
+    },
+    {
+      "label": "Le Mans",
+      "n": 10,
+      "mediane": 523
+    },
+    {
+      "label": "Clermont-Ferrand",
+      "n": 10,
+      "mediane": 385
+    }
+  ],
+  "niveaux": [
+    {
+      "label": "junior",
+      "n": 44,
+      "mediane": 498,
+      "q1": 388,
+      "q3": 690
+    },
+    {
+      "label": "intermediate",
+      "n": 225,
+      "mediane": 450,
+      "q1": 365,
+      "q3": 502
+    },
+    {
+      "label": "senior",
+      "n": 542,
+      "mediane": 500,
+      "q1": 440,
+      "q3": 550
+    },
+    {
+      "label": "expert",
+      "n": 188,
+      "mediane": 560,
+      "q1": 475,
+      "q3": 663
+    }
+  ],
+  "teletravail": {
+    "partiel": 0.496,
+    "total": 0.030333333333333334,
+    "aucun": 0.276
+  },
+  "historique": [
+    {
+      "date": "2026-10-26",
+      "n": 682,
+      "mediane": 485,
+      "q1": 425,
+      "q3": 550,
+      "source": "veille"
+    },
+    {
+      "date": "2026-11-09",
+      "n": 1082,
+      "mediane": 490,
+      "q1": 425,
+      "q3": 560,
+      "missions": 3000,
+      "source": "dataset"
+    }
+  ]
+}

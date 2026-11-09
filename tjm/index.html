@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baromètre TJM freelance IT</title>
+<meta name="description" content="TJM médian des missions freelance IT en France cette semaine : 490 € sur 1 082 missions avec tarif. Par compétence, par ville, télétravail, évolution semaine après semaine. Mis à jour chaque lundi.">
+<link rel="canonical" href="https://morvanvivien.github.io/data-apis/tjm/">
+<meta property="og:title" content="TJM freelance IT : 490 € médian cette semaine">
+<meta property="og:description" content="3 000 missions relevées, 1 082 avec tarif. Python, SQL, Java, DevOps… le baromètre hebdomadaire des TJM, données ouvertes.">
+<meta property="og:url" content="https://morvanvivien.github.io/data-apis/tjm/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Baromètre TJM freelance IT France","description":"TJM médian et quartiles des missions freelance IT publiées en France chaque semaine (1 082 missions avec tarif du 3 novembre 2026 au 9 novembre 2026), par compétence et par ville.","url":"https://morvanvivien.github.io/data-apis/tjm/","license":"https://opendatacommons.org/licenses/by/1-0/","creator":{"@type":"Organization","name":"bibian"},"temporalCoverage":"2026-11-03/2026-11-09","distribution":[{"@type":"DataDownload","encodingFormat":"text/csv","contentUrl":"https://huggingface.co/datasets/bibianarg/french-it-freelance-missions/resolve/main/data/all.csv"}]}</script>
+<style>
+  :root { --papier: #f4efe6; --encre: #17150f; --encre-2: #4a4538; --ligne: #d9d1c2; --carte: #fbf8f2; --accent: #d1341b; --accent-encre: #fff; --ok: #1f6f43;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; --sans: "Segoe UI", system-ui, -apple-system, sans-serif; --mono: Consolas, "SF Mono", Menlo, monospace;
+    --t-xl: clamp(2.4rem, 1rem + 4.8vw, 5rem); --t-l: clamp(1.4rem, 1rem + 1.4vw, 2.1rem); --s-2: 16px; --s-3: 28px; --s-4: 48px; --s-5: clamp(56px, 4vw + 32px, 96px); --ease: cubic-bezier(0.16, 1, 0.3, 1); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --papier: #15130e; --encre: #f2ecdf; --encre-2: #b4ab98; --ligne: #332f26; --carte: #1d1a13; --accent: #ff6a4d; --accent-encre: #15130e; --ok: #63c98f; } }
+  :root[data-theme="dark"] { --papier: #15130e; --encre: #f2ecdf; --encre-2: #b4ab98; --ligne: #332f26; --carte: #1d1a13; --accent: #ff6a4d; --accent-encre: #15130e; --ok: #63c98f; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papier); color: var(--encre); font: 400 1.0625rem/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
+  .page { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding: var(--s-3) 0 var(--s-2); border-bottom: 1px solid var(--encre); }
+  .marque { font: 700 1.15rem var(--serif); } .marque small { font: 400 0.9rem var(--sans); color: var(--encre-2); margin-left: 10px; }
+  nav a { font-size: 0.9rem; color: var(--encre-2); text-decoration: none; margin-left: 16px; } nav a:hover { color: var(--accent); }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); padding: var(--s-5) 0 var(--s-4); align-items: end; }
+  .kicker { font: 600 0.9rem var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 var(--s-2); }
+  h1 { font: 500 var(--t-xl)/0.98 var(--serif); letter-spacing: -0.03em; margin: 0 0 var(--s-3); text-wrap: balance; } h1 em { font-style: italic; color: var(--accent); }
+  .pitch { color: var(--encre-2); font-size: 1.15rem; max-width: 46ch; margin: 0; }
+  .chiffre { border-top: 1px solid var(--encre); padding-top: var(--s-2); }
+  .gros { font: 500 clamp(3.6rem, 2rem + 7vw, 7.5rem)/0.9 var(--serif); letter-spacing: -0.04em; } .gros sup { font-size: 0.35em; vertical-align: top; position: relative; top: 0.5em; color: var(--encre-2); }
+  .legende { color: var(--encre-2); margin-top: 8px; } .legende strong { color: var(--encre); }
+  .barre { display: flex; height: 10px; margin: var(--s-2) 0 6px; border-radius: 999px; overflow: hidden; background: var(--ligne); } .barre span { display: block; height: 100%; }
+  .p1, .p3 { background: var(--encre-2); width: 25%; } .p2 { background: var(--accent); width: 50%; }
+  .quartiles { display: flex; justify-content: space-between; font: 500 0.9rem var(--mono); color: var(--encre-2); }
+  section { padding: var(--s-4) 0; border-top: 1px solid var(--encre); }
+  h2 { font: 500 var(--t-l)/1.1 var(--serif); letter-spacing: -0.02em; margin: 0 0 var(--s-2); }
+  .deux { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
+  table { width: 100%; border-collapse: collapse; } th, td { padding: 9px 8px; border-bottom: 1px solid var(--ligne); text-align: left; } th { font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--encre-2); }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .remote { display: grid; gap: 10px; } .remote div { display: grid; grid-template-columns: 150px 1fr 56px; gap: 12px; align-items: center; font-size: 0.95rem; }
+  .remote i { display: block; height: 12px; border-radius: 999px; background: var(--ligne); position: relative; overflow: hidden; } .remote i::after { content: ""; position: absolute; inset: 0; width: var(--w); background: var(--accent); border-radius: 999px; }
+  .remote b { font: 600 0.95rem var(--mono); text-align: right; }
+  svg { width: 100%; height: auto; display: block; } .bande { fill: var(--accent); opacity: 0.18; } .mediane { fill: none; stroke: var(--accent); stroke-width: 2.5; } circle { fill: var(--accent); } text { font: 600 12px var(--mono); fill: var(--encre); } text.date { font-weight: 400; fill: var(--encre-2); }
+  .cta-bloc { background: var(--carte); border: 1px solid var(--encre); border-radius: 18px; padding: var(--s-3); display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--s-3); align-items: center; }
+  .cta { display: inline-flex; gap: 10px; align-items: center; background: var(--accent); color: var(--accent-encre); text-decoration: none; font-weight: 700; padding: 15px 22px; border-radius: 999px; transition: transform 0.4s var(--ease); } .cta:hover, .cta:focus-visible { transform: translateY(-2px); outline: none; }
+  .methode { color: var(--encre-2); font-size: 0.95rem; } .methode a { color: inherit; }
+  footer { padding: var(--s-3) 0 var(--s-4); border-top: 1px solid var(--ligne); color: var(--encre-2); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; } footer a { color: inherit; }
+  @media (max-width: 820px) { .hero, .deux, .cta-bloc { grid-template-columns: 1fr; } .remote div { grid-template-columns: 110px 1fr 48px; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="marque">Baromètre TJM <small>par bibian · mis à jour chaque lundi</small></div>
+    <nav aria-label="Sections"><a href="#competences">Compétences</a><a href="#villes">Villes</a><a href="#evolution">Évolution</a><a href="#methode">Méthode</a></nav>
+  </header>
+
+  <section class="hero" aria-labelledby="titre" style="border-top: 0;">
+    <div>
+      <p class="kicker">Missions freelance IT · France · du 3 novembre 2026 au 9 novembre 2026</p>
+      <h1 id="titre">Ce que paient les missions <em>cette semaine</em>.</h1>
+      <p class="pitch">3 000 missions publiées sur Free-Work en sept jours, 1 082 avec un tarif affiché. Médiane, quartiles, compétences et villes, recalculés chaque lundi à partir de données ouvertes.</p>
+    </div>
+    <div class="chiffre" aria-label="TJM médian">
+      <div class="gros">490<sup>€ / jour</sup></div>
+      <p class="legende">TJM médian. La moitié des missions se situe entre <strong>425 €</strong> et <strong>560 €</strong>.</p>
+      <div class="barre" aria-hidden="true"><span class="p1"></span><span class="p2"></span><span class="p3"></span></div>
+      <div class="quartiles"><span>425 €</span><span>médiane 490 €</span><span>560 €</span></div>
+    </div>
+  </section>
+
+  <section class="deux" id="competences" aria-labelledby="t-comp">
+    <div>
+      <h2 id="t-comp">Par compétence</h2>
+      <table><thead><tr><th>Compétence</th><th class="n">Missions</th><th class="n">TJM médian</th></tr></thead><tbody><tr><td>Python</td><td class="n">70</td><td class="n"><b>475 €</b></td></tr><tr><td>SQL</td><td class="n">64</td><td class="n"><b>475 €</b></td></tr><tr><td>Java</td><td class="n">62</td><td class="n"><b>475 €</b></td></tr><tr><td>Kubernetes</td><td class="n">54</td><td class="n"><b>500 €</b></td></tr><tr><td>JIRA</td><td class="n">51</td><td class="n"><b>475 €</b></td></tr><tr><td>Gestion de projet</td><td class="n">42</td><td class="n"><b>543 €</b></td></tr><tr><td>SAP</td><td class="n">40</td><td class="n"><b>600 €</b></td></tr><tr><td>CI/CD</td><td class="n">40</td><td class="n"><b>475 €</b></td></tr><tr><td>Ansible</td><td class="n">37</td><td class="n"><b>500 €</b></td></tr><tr><td>DevOps</td><td class="n">36</td><td class="n"><b>500 €</b></td></tr><tr><td>Linux</td><td class="n">35</td><td class="n"><b>465 €</b></td></tr><tr><td>Finance</td><td class="n">34</td><td class="n"><b>535 €</b></td></tr><tr><td>Architecture</td><td class="n">34</td><td class="n"><b>600 €</b></td></tr><tr><td>Terraform</td><td class="n">34</td><td class="n"><b>508 €</b></td></tr></tbody></table>
+    </div>
+    <div id="villes">
+      <h2>Par ville</h2>
+      <table><thead><tr><th>Ville</th><th class="n">Missions</th><th class="n">TJM médian</th></tr></thead><tbody><tr><td>Paris</td><td class="n">124</td><td class="n"><b>500 €</b></td></tr><tr><td>Nantes</td><td class="n">42</td><td class="n"><b>390 €</b></td></tr><tr><td>Lyon</td><td class="n">41</td><td class="n"><b>440 €</b></td></tr><tr><td>Toulouse</td><td class="n">35</td><td class="n"><b>425 €</b></td></tr><tr><td>Lille</td><td class="n">32</td><td class="n"><b>440 €</b></td></tr><tr><td>Bruxelles</td><td class="n">24</td><td class="n"><b>650 €</b></td></tr><tr><td>Niort</td><td class="n">20</td><td class="n"><b>450 €</b></td></tr><tr><td>Hart</td><td class="n">15</td><td class="n"><b>690 €</b></td></tr><tr><td>La Défense</td><td class="n">14</td><td class="n"><b>598 €</b></td></tr><tr><td>Bordeaux</td><td class="n">12</td><td class="n"><b>425 €</b></td></tr><tr><td>Châtillon</td><td class="n">12</td><td class="n"><b>478 €</b></td></tr><tr><td>Montreuil</td><td class="n">11</td><td class="n"><b>540 €</b></td></tr><tr><td>Le Mans</td><td class="n">10</td><td class="n"><b>523 €</b></td></tr><tr><td>Clermont-Ferrand</td><td class="n">10</td><td class="n"><b>385 €</b></td></tr></tbody></table>
+      <h2 style="margin-top: var(--s-3);">Par niveau</h2><table><thead><tr><th>Niveau</th><th class="n">Missions</th><th class="n">TJM médian</th></tr></thead><tbody><tr><td>Junior</td><td class="n">44</td><td class="n"><b>498 €</b></td></tr><tr><td>Confirmé</td><td class="n">225</td><td class="n"><b>450 €</b></td></tr><tr><td>Senior</td><td class="n">542</td><td class="n"><b>500 €</b></td></tr><tr><td>Expert</td><td class="n">188</td><td class="n"><b>560 €</b></td></tr></tbody></table>
+    </div>
+  </section>
+
+  <section class="deux" aria-labelledby="t-remote">
+    <div>
+      <h2 id="t-remote">Télétravail</h2>
+      <div class="remote">
+        <div><span>Partiel</span><i style="--w: 50%"></i><b>50 %</b></div>
+        <div><span>Total</span><i style="--w: 3%"></i><b>3 %</b></div>
+        <div><span>Sur site</span><i style="--w: 28%"></i><b>28 %</b></div>
+      </div>
+      <p class="methode" style="margin-top: var(--s-2);">Le reste des missions ne précise pas le mode de travail.</p>
+    </div>
+    <div id="evolution">
+      <h2>Évolution du TJM médian</h2>
+      <svg viewBox="0 0 640 200" role="img" aria-label="TJM médian par semaine, avec la zone entre premier et troisième quartile"><polygon class="bande" points="28.0,52.7 612.0,44.5 612.0,155.5 28.0,155.5"/><polyline class="mediane" points="28.0,106.2 612.0,102.1"/><circle cx="28.0" cy="106.2" r="4"/><text x="28.0" y="96.2" text-anchor="middle">485 €</text><text class="date" x="28.0" y="194" text-anchor="middle">26/10</text><circle cx="612.0" cy="102.1" r="4"/><text x="612.0" y="92.1" text-anchor="middle">490 €</text><text class="date" x="612.0" y="194" text-anchor="middle">09/11</text></svg>
+      <p class="methode">Zone colorée : entre le premier et le troisième quartile. Une marque par relevé hebdomadaire.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-radar">
+    <div class="cta-bloc">
+      <div>
+        <h2 id="t-radar" style="margin: 0 0 8px;">Les missions qui te correspondent, chaque matin à 7 h.</h2>
+        <p style="margin: 0; color: var(--encre-2);">Radar Missions lit Free-Work, Codeur et les autres sources la nuit et t'envoie un seul mail filtré sur tes mots clés, ta ville ou le télétravail, et ton TJM minimum. Premier mois à 2 €.</p>
+      </div>
+      <div><a class="cta" href="https://morvanvivien.github.io/data-apis/radar/?utm_source=barometre">Rejoindre la liste d'attente <span aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+
+  <section id="methode" aria-labelledby="t-methode">
+    <h2 id="t-methode">Méthode</h2>
+    <p class="methode">Chaque lundi, l'acteur ouvert <a href="https://apify.com/bibian/free-work-jobs-scraper">Free-Work Jobs &amp; Freelance Missions Scraper</a> relève toutes les missions publiées sur free-work.com depuis sept jours. Le TJM d'une mission est le milieu de sa fourchette affichée (ou la seule borne publiée) ; les valeurs hors de 100 à 3 000 € sont écartées. Une compétence ou une ville n'apparaît qu'à partir de 8 missions avec tarif. Ce sont des tarifs annoncés, pas des contrats signés. Les données de la semaine sont publiées en entier, sans texte d'annonce ni donnée personnelle, sur <a href="https://huggingface.co/datasets/bibianarg/french-it-freelance-missions">Hugging Face</a> (licence ODC-By).</p>
+  </section>
+
+  <footer>
+    <span>Baromètre TJM, un service bibian. Dernière mise à jour : 9 novembre 2026.</span>
+    <span><a href="https://morvanvivien.github.io/data-apis/">Toutes nos API de données</a></span>
+  </footer>
+</div>
+</body>
+</html>
